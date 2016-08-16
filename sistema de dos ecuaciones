@@ -1,0 +1,27 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+void main()
+{float a,b,d,e,c,f,x,y;
+    cout<<" sistema de dos ecuaciones" << endl;
+	cout<<" ingrese A de x";
+    cin>> a;
+	cout<<" ingrese B de y";
+	cin>> b;
+	cout<<" ingrese c de x";
+    cin>> c;
+	cout<<" ingrese d de y";
+	cin>> d;
+	cout<<" ingrese e de x";
+	cin>> e;
+	cout<<" ingrese f de y";
+	cin>> f;
+		x=(c-(b*y))/a;
+		y=(f*a-d*c)/(e*a-b*c);
+       
+	cout<< " la x es "<<x;
+	cout<< " la y es "<<y;
+	getch();
+}
