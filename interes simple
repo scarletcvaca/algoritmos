@@ -1,0 +1,17 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+void main()
+{float a,b,c,p;
+	cout<<" ingrese la tasa";
+    cin>> a;
+	cout<<" ingrese los años";
+	cin>> b;
+	cout<<" ingrese el capital";
+	cin>> c;
+		p= a*(b/360)*c;
+	cout<< " el interes simple es "<<p;
+	getch();
+}
