@@ -1,0 +1,20 @@
+#include "stdafx.h"
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+void main()
+{float precio,n, cant,a=0,i; 
+cout<<"ingrese cuantos tipos de productos tiene"<< endl;
+	cin>> n;
+	for (i=0;i<n;i++)
+	{cout<< " ingrese la cantidad del producto "<< i<< endl;
+	cin>> cant;
+	cout<<" ingrese el precio"<< endl;
+	cin>> precio;
+	a=a+cant*precio;
+	}
+	cout<<" el precio a pagar es" <<a<< endl;
+	getch();
+}
