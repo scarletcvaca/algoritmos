@@ -1,0 +1,18 @@
+#include "stdafx.h"
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+void main()
+{float salario,sneto; 
+cout<<"ingrese su salario"<< endl;
+	cin>> salario;
+	{if(salario>= 3610)
+		sneto= salario-(salario*0.121)-(salario*0.13);
+	else 
+		sneto= salario-(salario*0.121);
+	}cout<< " el salario neto es"<< sneto;
+	getch();
+}
+
