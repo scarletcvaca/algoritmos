@@ -1,0 +1,39 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include "stdlib.h"
+#define tam 100
+using namespace std;
+
+int main()
+{
+   int total;
+   string nombres[tam], nombre, apellido, continuar,vinvertido[tam];
+   unsigned int encontro;
+   do{
+      cout << "ingrese el numero de nombres: ";
+      cin >> total;
+   } while (!(total<= tam)&&(total>0));
+   cin.ignore();
+   for (int i = 0; i < total; i++)
+   {
+      cout << "Ingrese el " << i + 1 << " nombre: ";
+      getline(cin, nombres[i]);
+    }
+    cout << "\nResultados\n";
+    for (int i = 0; i < total; i++)
+    {
+       encontro = nombres[i].find(' ', 0);
+       if (encontro != string::npos)
+       {
+           nombre = nombres[i].substr(0, encontro);
+           apellido = nombres[i].substr(encontro + 1,
+           nombres[i].length());
+		   vinvertido[i]=apellido + ","+nombre ;   
+       }
+     }
+	for(int i=0;i<tam;i++)
+		cout<<vinvertido[i]<<endl;
+    system("pause");
+    return 0;
+}
