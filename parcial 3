@@ -1,0 +1,210 @@
+1.	dimensiones de países
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+
+#define max 10
+
+using namespace std;
+
+struct matriz{
+ float vec[max][max];
+};
+
+void cargar (matriz stef[max],int n, int m,int p);
+void mostrar (matriz stef[max],int n, int m,int p);
+
+
+void main ()
+{
+	matriz stef[max];
+	
+	int n,m,p;
+	float promedio;
+	int i,j,k;
+
+	do
+	{cout<<"ingrese el numero de paises";
+	cin>>n;}while (n<=0 || n>max);
+	do
+	{cout<<"ingrese el numero de dimensiones";
+	cin>>m;}while (m<=0 || m>max);
+	do
+	{cout<<"ingrese el numero de indicadores";
+	cin>>p;}while (p<=0 || p>100);
+	cargar(stef,n,m,p);
+	mostrar(stef,n,m,p);
+	
+	float pr,s;
+	for(i=0;i<n;i++)
+	{
+		s=0;
+	for(j=0;j<m;j++)
+	{
+		for(k=0;k<p;k++)
+		{
+			s=s+stef[i].vec[j][k];
+		}
+		pr=s/(m*p);
+		
+	}
+	cout<<"el promedio del pais -"<<i<<"- es = "<<pr<<endl;
+	}
+		
+	
+
+
+getch();
+}
+
+void cargar (matriz stef[max],int n, int m,int p)
+{
+	int i,j,k;
+
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			for(k=0;k<p;k++)
+			{
+				cout<<"pais["<<i<<"].mat["<<j<<"]["<<k<<"]= ";
+				cin>>stef[i].vec[j][k];
+			}
+		}
+	}
+
+}
+void mostrar (matriz stef[max],int n, int m,int p)
+{
+	int i,j,k;
+
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			for(k=0;k<p;k++)
+			{
+				cout<<"pais["<<i<<"].mat["<<j<<"]["<<k<<"]= "<<stef[i].vec[j][k]<<endl;
+				
+			}
+		}
+	}
+}
+
+
+2.
+Ordenar element en un vector
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#define MAX 100
+using namespace std;
+
+void cargar(int vec[MAX], int n);
+void mostrar(int vec[MAX], int n);
+void agregar(int vec[MAX], int n, int n1);
+
+int main()
+{int v1[MAX],n,n1;
+ cout<<"Ingrese la dimension del vector: ";
+ cin>>n;
+ n1=n+1;
+ cargar(v1,n);
+ mostrar(v1,n);
+ agregar(v1,n,n1);
+ mostrar(v1,n1);
+ getch();
+ return 0;
+}
+
+void cargar(int vec[MAX], int n)
+{cout<<"Cargue el vector: "<<endl;
+	for(int i=0; i<n; i++)
+	{cout<<"[ "<<i<<" ] : ";
+	 cin>>vec[i];
+	}
+}
+
+void mostrar(int vec[MAX], int n)
+{
+	for(int i=0; i<n; i++)
+	{
+		cout<<vec[i]<<"   ";
+	}
+}
+
+void agregar(int vec[MAX], int n, int n1)
+{int elem, j;
+ j=0;
+ cout<<endl<<"Ingrese elemento: ";
+ cin>>elem;
+ for(int i=0; i<n; i++)
+ {
+	 if(elem>vec[i])
+	 {j++;
+	 }
+	  vec[j]=vec[j+1];
+ }
+
+ vec[j]=elem;
+ for(int k=0; k<n; k++)
+ {
+	 if(vec[k]>elem)
+	 {
+		
+		 vec[k+1]=vec[k];
+	 }
+ }
+}
+
+
+3. //realizar una funcion para clasificar los datos por apellidos en orden descendente
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+#define N 20
+using namespace std;
+
+void ordenar(string nombres[], string apellidos [], int n)
+{ bool bandera;
+string aux;
+  
+    do { 
+		flag= false;
+		for(int i =0; i< n - 1; i++)
+		{
+			if (apellidos[i].compare(apellidos[i+1])<0)
+			{aux = apellidos [i];
+			 apellidos[i] = apellidos[i+1];
+			 apellidos[i+1] = aux;
+             aux = nombres[i];
+			 nombres[i] = nombres[i+1];
+		     nombres[i+1] = aux;
+			 bandera = true;
+			}
+		}
+	  }while((bandera == true) );
+}
+
+void main()
+{
+	string apellidos[N], nombres [N];
+	int n;
+	cout<<"ingrese el numero de personas:"<<endl;
+	cin>> n;
+
+	for(int i=0; i < n; i++)
+	{ cout<<"ingrese el nombre y apellido de la persona"<< i +1 <<endl;
+	cin>>nombres[i]>>apellidos [i];
+	}
+
+	ordenar(nombres, apellidos, n);
+	for (int i = 0;i < n; i++)
+	{ cout<<apellidos [i]<<' '<<nombres[i]<<endl;
+	}
+getch();
+}
