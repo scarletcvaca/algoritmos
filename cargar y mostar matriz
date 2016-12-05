@@ -1,0 +1,73 @@
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+#include <string.h>
+
+#define MAX 10
+using namespace std;
+
+struct matriz
+{
+	float matri[MAX][MAX];
+
+};
+
+void cargar(int p, int q,int n, int m, matriz mat[MAX][MAX])
+{
+	int i,j,k,w;
+
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			for(k=0;k<p;k++)
+			{
+				for(w=0;w<q;w++)
+				{ 
+					cout<<"cargue su matriz completa"<<endl;
+					cout<<" mat["<<i<<"]["<<j<<"].matri["<<k<<"]["<<w<<"] :";
+
+					cin>> mat[i][j].matri[k][w];
+				}
+			}
+		}
+	}
+}
+
+void mostrar(int p, int q,int n, int m, matriz mat[MAX][MAX])
+{
+	int i,j,k,w;
+
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<m;j++)
+		{
+			for(k=0;k<p;k++)
+			{
+				for(w=0;w<q;w++)
+				{ 
+					cout<<" mat["<<i<<"]["<<j<<"].matri["<<k<<"]["<<w<<"] :"<<mat[i][j].matri[k][w]<<endl;
+				}
+			}
+		}
+	}
+}
+
+void main()
+{
+	int m,n,p,q;
+ matriz pip[MAX][MAX];
+
+	cout<<"ingrese el valor de m"<<endl;
+	cin>>m;
+	cout<<"ingrese el valor de n"<<endl;
+	cin>>n;
+	cout<<"ingrese el valor de p"<<endl;
+	cin>>p;
+	cout<<"ingrese el valor de q"<<endl;
+	cin>>q;
+	cargar(m,n,p,q,pip);
+	
+	mostrar(m,n,p,q,pip);
+getch();
+}
